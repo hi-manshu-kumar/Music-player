@@ -17,7 +17,8 @@
     <div class="col-md-6 m-auto">
         <div class="card-group " ng-repeat="x in imagePath">
             <div class="card card-body mb-3 shadow" >
-                <img class="card-img-top" ng-src={{x.path}} alt="Card image cap">
+                <!-- <img class="card-img-top" ng-src={{x.path}} alt="Card image cap"> -->
+                <audio class="card-img-top"  *ngf-background="myImage" controls ng-src={{x.path}}></audio>
                 <div class="card-body">
                     <h5 class="card-title">{{x.title}}</h5>
                     <p class="card-text">{{x.description}}</p>

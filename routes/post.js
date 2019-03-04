@@ -16,7 +16,6 @@ router.post('/', authenticate, (req, res) => {
             if (req.file == undefined) {
                 res.status(400).send("Error: No File Selected!");
             } else {
-                
                 var fullPath = "files/" + req.file.filename;
                 let flag = req.body.communityFlag == undefined ? false: true;
                 var post = new Post({
@@ -26,10 +25,8 @@ router.post('/', authenticate, (req, res) => {
                     _creator: req.user._id,
                     communityFlag: flag
                 });
-
                 post.save().then((data) => {
                     res.send(data);
-
                 }, (err) => {
                     res.status(400).send(err);
                 })
@@ -44,7 +41,8 @@ router.get('/', authenticate, (req, res) => {
     Post.find({
         // _creator: req.user.id
         communityFlag: true
-    }).then((posts) => {
+    })
+    .then((posts) => {
         res.status(200).send({
             posts
         });

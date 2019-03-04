@@ -15,14 +15,16 @@
 
 <div class="container">
     <div class="header">
-        <h2 class="centre">Upload Image</h2>
+        <h2 class="centre">Upload Music</h2>
         <!-- <p>made with MEAN stack!</p> -->
     </div>
     <div class="formContainer">
         <!-- <img src="./image/undraw_profile_pic_ic5t(2).png" alt=""> -->
-        <img class="mt-4 mb-2" id="thumbnail" ngf-thumbnail="myImage || './image/thumb.png'"/>
+        <img class="mt-4 mb-2" id="thumbnail" src="./image/undraw_compose_music_ovo2.png"/>
+        <audio class="mt-4 mb-2" id="thumbnail" *ngf-background="myImage" controls ngf-src="myImage"></audio>
         <form name="postform" ng-submit="callPost()" novalidate>
-            <input class="formstyle"  type="file" ngf-select ng-model="myImage" name="myImage" ngf-pattern="'image/*'" ng-faccept="image/*" ngf-max-size="20MB" required> <br>
+            <input class="formstyle"  type="file" ngf-select ng-model="myImage" name="myImage" ngf-pattern="'video/*,.mp3,audio/*'" ng-faccept="video/*,audio/*,.mp3" ngf-max-size="20MB" required> <br>
+            
             <span ng-show="postform.myImage.$touched && postform.myImage.$invalid && postform.myImage.$error['required']" class="error">Image can't be empty!</span>
             <span ng-show="postform.myImage.$error.maxSize">File too large 
                 {{myImage.size / 1000000|number:1}}MB: max 20M</span>
@@ -38,9 +40,9 @@
                 <option value="" >False</option>
                 <option value="true" selected>True</option>
             </select>
-            <button class="formstyle form--button font-weight-bolder" type="submit">Add post</button> <br>
+            <button class="formstyle form--button font-weight-bolder" type="submit">Add Song</button> <br>
         </form>
 
     </div>
 </div>
-<a class="linkPosition animated infinite bounce slow" ng-if=url href={{url}} target="_blank"><i class="fas fa-link"></i>link to image</a>
+<a class="linkPosition animated infinite bounce slow" ng-if=url href={{url}} target="_blank"><i class="fas fa-link"></i>link to music</a>

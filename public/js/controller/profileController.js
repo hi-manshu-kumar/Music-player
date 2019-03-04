@@ -23,12 +23,13 @@ app.controller("profileCtrl", function ($scope, $location, $cookies, Upload, aut
                 'x-auth': $cookies.get('token')
             }
         }).then(function (resp) {
-            swal("Image Uplaoded!", "You clicked the button!", "success");
+            swal("Music Uplaoded!", "You clicked the button!", "success");
             console.log('Success ' + resp.config.data.myImage.name + 'uploaded. Response: ' + resp.data);
             // $scope.url = `http:/localhost:1234/${resp.data.path}`;
             $scope.url=resp.data.path;
         }, function (resp) {
-            swal ( "Oops" ,  "Something went wrong during upload!Pls try again with file type jpeg,jpg,png,gif within 20mb file size..." ,  "error" );
+            console.log(resp);
+            swal ( "Oops" ,  "Something went wrong during upload!Pls try again with file type .mp3 within 20mb file size..." ,  "error" );
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.myImage.name);
