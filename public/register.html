@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="header">
+        <h2 class="centre">Cloud Image Uploader</h2>
+        <p>made with MEAN stack!</p>
+        <p class="page">Registration Page</p>
+    </div>
+    <div class="formContainer">
+        <img src="./image/undraw_profile_pic_ic5t(2).png" alt="">
+        <form  name="registerForm" ng-submit="callRegister()">
+            <input type="email" class="formstyle" placeholder="email" ng-model="email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"> <br>
+            <span ng-show="registerForm.email.$touched && registerForm.email.$invalid && registerForm.email.$error['required']" class="error">email can't be empty!</span>
+            <span ng-show="registerForm.email.$touched && registerForm.email.$invalid && registerForm.email.$error['pattern']" class="error">Email has invalid format</span>
+
+
+            <input type="password" class="formstyle" placeholder="password" ng-model="password" name="password" pattern="^.{6,}$" required title="Must contain at least 6 characters"> <br>
+            <span ng-show="registerForm.password.$touched && registerForm.password.$invalid && registerForm.password.$error['required']" class="error">Password can't be empty</span>
+            <span ng-show="registerForm.password.$touched && registerForm.password.$invalid && registerForm.password.$error['pattern']" class="error">Must contain at least 6 characters</span>
+
+            <button class="formstyle form--button font-weight-bolder">Register</button> <br>
+        </form>
+        <p class="formContainer--register">Already registered?
+            <a ui-sref="login" ui-sref-active="active">Sign In</a></p>
+    </div>
+</div>
